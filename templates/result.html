@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <h4 class="mt-4 mb-5 border-bottom" style="color: green;">結果：野菜の分類と価格予想：{{ vegetable_info.vegetable_name }}</h4>
+    <table class='table'>
+      <tbody>
+        <tr>
+          <td>項目</td>
+          <td>結果</td>
+        </tr>
+        <tr>
+          <td>画像ファイル</td>
+          <td><img src={{ image_url }} alt="画像を読み込めません。" /></td>
+        </tr>
+        <tr>この画像は{{ y_label }}です。</tr>
+        <tr>
+          <td>信頼度</td>
+          <td>{{ y_proba }} % </td>
+        </tr>
+        <tr>
+          <td>次月前半の価格予想</td>
+          <td>{{ vegetable_info.vegetable_price_firsthalf }} </td>
+        </tr>
+        <tr>
+          <td>次月後半の価格予想</td>
+          <td>{{ vegetable_info.vegetable_price_secondhalf }} </td>
+        </tr>
+        <tr>
+            <td>今月の野菜情報</td>
+            <td>{{ vegetable_info.vegetable_price_info }} </td>
+          </tr>
+      </tbody>
+    </table>
+    <a href="{% url 'index' %}" class="btn btn-success" style=margin-top:30px;>画像選択メニューに戻る</a>
+  </div>
+{% endblock %}
